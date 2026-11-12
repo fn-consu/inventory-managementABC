@@ -1,6 +1,7 @@
 import axios from 'axios'
 
-const API_BASE_URL = 'http://localhost:8001/api'
+// Override at build time with VITE_API_BASE_URL (e.g. "/api" when the backend is served from the same origin)
+export const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:8001/api'
 
 export const api = {
   async getInventory(filters = {}) {

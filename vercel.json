@@ -1,0 +1,14 @@
+{
+  "installCommand": "cd client && npm install",
+  "buildCommand": "cd client && VITE_API_BASE_URL=/api npm run build",
+  "outputDirectory": "client/dist",
+  "functions": {
+    "api/index.py": {
+      "includeFiles": "server/**"
+    }
+  },
+  "rewrites": [
+    { "source": "/api/(.*)", "destination": "/api/index" },
+    { "source": "/((?!api/).*)", "destination": "/index.html" }
+  ]
+}
